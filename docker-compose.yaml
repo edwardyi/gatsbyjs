@@ -2,8 +2,13 @@ version: "3.8"
 
 services:
   node:
-    build: .
+    build:
+      context: .
+      args:
+        - NODE_VERSION=6.11.3
     tty: true
     stdin_open: true
     volumes:
       - "./app:/app"
+    ports:
+      - "8001:8000"
